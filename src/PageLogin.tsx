@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './PageInscription.css'
-function PageInscription() {
+function PageLogin() {
     
   
     return (
@@ -10,7 +10,7 @@ function PageInscription() {
           <form action='' method='post'>
             <div>
               <h2>
-                Veuillez vous inscrire :
+                Veuillez vous connecter :
               </h2>
               <br></br>
             </div>
@@ -22,29 +22,14 @@ function PageInscription() {
             
             <div className="form__field">
             <label htmlFor=''>Mot de passe </label>
-              <input type="password" className="form__input" pattern=".{6,}" required/>
-                <span className="icon"></span>
-              </div>
-            <br></br>
-            <div>
-                <label htmlFor=''>Nom </label>
-                <input type='Text' className='from-control'></input>
+              <input type="password" className='from-control'></input> 
             </div>
-            <br></br>
-            <div>
-                <label htmlFor=''>Prénom </label>
-                <input type='Text' className='from-control'></input>
-            </div>
-            <br></br>
-            <div>
-                <label htmlFor=''>Numéro de téléphone </label>
-                <input type='tel' className='from-control'></input>
-            </div>
+            
             <br></br>
             <br></br>
             <div>
                 <button className='btn btn-success btn-block'>
-                  S'inscrire
+                  Connexion
                 </button>
 
             </div>
@@ -54,4 +39,4 @@ function PageInscription() {
     )
   }
   
-  export default PageInscription
+  export default PageLogin
