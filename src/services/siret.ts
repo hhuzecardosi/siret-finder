@@ -1,4 +1,4 @@
-import {Query, SpecialCase, URL, Auth} from "../config/environement";
+import {Auth, Query, SpecialCase, URL} from "../config/environement";
 
 
 export const getSiretQuery = (query: Query): string => {
@@ -46,11 +46,10 @@ export const getSiretQuery = (query: Query): string => {
 export const sendQuery = async (query: string) => {
     const headers = getHeaders("application/json", Auth, "INSEE=rd4o00000000000000000000ffff0ac34809o80; pdapimgateway=rd4o00000000000000000000ffff0ac348aco8280");
     const requestOptions = {method: 'GET', headers};
-    const result = await fetch(query, requestOptions)
+    return await fetch(query, requestOptions)
       .then(response => response.json())
       .then(result => result)
       .catch(error => error);
-    console.log(result);
 }
 
 const getHeaders = (accept: string, auth: string, cookie: string): Headers => {
