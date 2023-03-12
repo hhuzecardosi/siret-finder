@@ -6,7 +6,7 @@ import {getSiretQuery, sendQuery} from "../services/siret";
 
 function Search() {
   //state
-  const [fieldQueries, setFieldFieldQueries] = useState([{id: 0, field: '', value: '', specialCase: ''}]);
+  const [fieldQueries, setFieldFieldQueries] = useState([{id: new Date().getTime(), field: '', value: '', specialCase: ''}]);
 
   // handlers
   const handleDelete = (id: number) => {
@@ -30,7 +30,6 @@ function Search() {
     const query = getSiretQuery({fields, requiredFields});
     console.log({query})
     const result = await sendQuery(query);
-    console.log('BUG WHEN SPACE IN FIELD');
     console.log('NEXT STEP DISPLAY RESULTS', result);
   }
 

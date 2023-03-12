@@ -2,6 +2,7 @@ import {Auth, Query, SpecialCase, URL} from "../config/environement";
 
 
 export const getSiretQuery = (query: Query): string => {
+    console.log(query);
     let url = URL + '?'
     if (query.fields.length > 0) {
         url += 'q='
@@ -18,7 +19,8 @@ export const getSiretQuery = (query: Query): string => {
                     fieldURL = fieldURL.replace('<<field>>', field.field + ':' + '"' + field.value + '"' + '*');
                     break;
                 default:
-                    fieldURL = fieldURL.replace('<<field>>', field.field + ':' + field.value);
+                    const searchValue = field.value.includes(' ') ? '"' + field.value + '"' : field.value;
+                    fieldURL = fieldURL.replace('<<field>>', field.field + ':' + searchValue);
                     break;
             }
             if (index < query.fields.length - 1) {
