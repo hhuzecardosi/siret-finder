@@ -1,16 +1,15 @@
 import { useState } from 'react'
 import React from 'react';
 
-import reactLogo from './assets/react.svg'
-import './pages/PageInscription.css'
+import './PageInscription.css'
 import { signInWithEmailAndPassword  } from 'firebase/auth'
-import { auth } from './firebase'
+import { auth } from '../services/firebase'
 
 export const PageLogin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const authentification = auth;
+  const authentication = auth;
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
@@ -25,7 +24,7 @@ export const PageLogin = () => {
     return (
       <div className="container" >
         <div>
-          <form onSubmit={authentification}>
+          <form action={"submit"} onSubmit={() => {authentication}}>
             <div>
               <h2>
                 Veuillez vous connecter :
