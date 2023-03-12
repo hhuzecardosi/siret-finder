@@ -3,10 +3,12 @@ import FieldSearch from "./FieldSearch/FieldSearch";
 
 import {RequiredFields} from "../config/environement";
 import {getSiretQuery, sendQuery} from "../services/siret";
+import {useNavigate} from "react-router-dom";
 
 function Search() {
   //state
   const [fieldQueries, setFieldFieldQueries] = useState([{id: new Date().getTime(), field: '', value: '', specialCase: ''}]);
+  const navigate = useNavigate();
 
   // handlers
   const handleDelete = (id: number) => {
@@ -28,9 +30,9 @@ function Search() {
     const fields = fieldQueries.filter(q => q.field !== '' && q.value !== '');
     const requiredFields: RequiredFields = [];
     const query = getSiretQuery({fields, requiredFields});
-    console.log({query})
     const result = await sendQuery(query);
-    console.log('NEXT STEP DISPLAY RESULTS', result);
+    // PUSH TO HISTORY
+    navigate('/results', {state: {fields, result, query}});
   }
 
   //render

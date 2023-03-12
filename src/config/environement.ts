@@ -4,7 +4,8 @@ export type RequiredFields = string[];
 export type Query = {fields: fieldQuery[], requiredFields: RequiredFields, start?: number};
 
 export const URL = 'https://api.insee.fr/entreprises/sirene/V3/siret';
-export const Auth = 'Bearer 00ae2ef1-1045-328b-942a-809f26e9c33f';
+export const Auth = 'Bearer fbe3a1a8-7d34-3a08-b6cc-d555cae4f9a1';
+
 export const environment = {
   firebase: {
     apiKey: "AIzaSyAMprQDFDGMd-nYR8Omt1jH8z_K9wnYK98",
