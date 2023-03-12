@@ -1,8 +1,8 @@
 import {useState} from "react";
-import FieldSearch from "./FieldSearch/FieldSearch";
+import FieldSearch from "../../components/FieldSearch/FieldSearch";
 
-import {RequiredFields} from "../config/environement";
-import {getSiretQuery, sendQuery} from "../services/siret";
+import {RequiredFields} from "../../config/environement";
+import {getSiretQuery, sendQuery} from "../../services/siret";
 import {useNavigate} from "react-router-dom";
 
 function Search() {
@@ -32,7 +32,7 @@ function Search() {
     const query = getSiretQuery({fields, requiredFields});
     const result = await sendQuery(query);
     // PUSH TO HISTORY
-    navigate('/results', {state: {fields, result, query}});
+    navigate('/siret/results', {state: {fields, result, query}});
   }
 
   //render

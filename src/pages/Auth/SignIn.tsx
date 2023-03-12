@@ -1,5 +1,5 @@
 import {useContext, useState} from "react";
-import {UserContext} from "../config/UserContext";
+import {UserContext} from "../../config/UserContext";
 import {useNavigate} from "react-router-dom";
 
 export default function SingIn(){
@@ -15,7 +15,7 @@ export default function SingIn(){
     event.preventDefault();
     signIn(email, password).then(() => {
       setValidation('');
-      navigate('/siret/test');
+      navigate('/siret/search');
     })
       .catch((e: any) => {
         if (e.code === "auth/invalid-email") {

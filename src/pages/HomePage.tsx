@@ -1,9 +1,14 @@
 import {useContext} from "react";
 import {UserContext} from "../config/UserContext";
+import {Navigate} from "react-router-dom";
 
 function HomePage() {
   // @ts-ignore
   const {currentUser} = useContext(UserContext);
+
+  if(currentUser) {
+    return (<Navigate to={'/siret/search'}/>)
+  }
 
   return (
     <div>
