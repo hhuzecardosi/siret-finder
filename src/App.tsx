@@ -1,21 +1,21 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
-import PageInscription from './PageInscription'
+import { Route, Routes, Link, BrowserRouter } from 'react-router-dom'
+
+import PageInscription from './pages/PageInscription'
 import PageLogin from './PageLogin'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
 
   return (
-    <div className="App">
-      <div>
-        <PageInscription/>
-        </div>
-        <div>
-          <PageLogin/>
-        </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+      
+        <Route  path='/' element={<PageLogin />}/>
+        <Route  path='/register' element={<PageInscription />} />
+      </Routes>
+    </BrowserRouter>
+    
   )
 }
 
